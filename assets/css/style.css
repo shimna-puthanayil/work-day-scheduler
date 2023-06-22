@@ -31,30 +31,43 @@ body {
   }
   
   .past {
-    background-color: #d3d3d3;
+    /* background-color: #bfb8b8; */
+    background-color: #d5d2d2;
     color: white;
   }
   
   .present {
-    background-color: #ff6961;
+    /* background-color: #cb605a; */
+    background-color: #c69187;
+    /* background-color: #c88274; */
     color: white;
   }
   
   .future {
-    background-color: #77dd77;
-    color: white;
+    background-color: #558d8d;
+    /* background-color: #5fad94; */
+    /* background-color: #39a07f; */
+    /* background-color: #549f7e; */
   }
   
   .saveBtn {
     border-left: 1px solid black;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    background-color: #06aed5;
+    /* background-color: #49b9d2; */
+    background-color:#8b96a0;
+   
     color: white;
   }
-  
+ 
   .saveBtn i:hover {
     font-size: 20px;
     transition: all 0.3s ease-in-out;
+    
   }
+  .icon-visible
+  {
+    visibility: visible;
+  } 
   
+ 
