@@ -1,73 +1,71 @@
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-  }
-  
-  textarea {
+}
+
+textarea {
     background: transparent;
     border: none;
     resize: none;
     color: #000000;
     border-left: 1px solid black;
     padding: 10px;
-  }
-  
-  .description {
+}
+
+.description {
     white-space: pre-wrap;
-  }
-  
-  .time-block {
+}
+
+.time-block {
     border-radius: 15px;
-  }
-  
-  .row {
+}
+
+.row {
     border-top: 1px solid white;
-  }
-  
-  .hour {
+}
+
+.hour {
     background-color: #ffffff;
     color: #000000;
     border-top: 1px dashed #000000;
-  }
-  
-  .past {
-    /* background-color: #bfb8b8; */
+}
+
+.past {
     background-color: #d5d2d2;
     color: white;
-  }
-  
-  .present {
-    /* background-color: #cb605a; */
-    background-color: #c69187;
-    /* background-color: #c88274; */
+}
+
+.present {
+
+    /* background-color: #c69187; */
+    background-color: #d48170;
     color: white;
-  }
-  
-  .future {
-    background-color: #558d8d;
-    /* background-color: #5fad94; */
-    /* background-color: #39a07f; */
-    /* background-color: #549f7e; */
-  }
-  
-  .saveBtn {
+}
+
+.future {
+    /* background-color: #558d8d; */
+    background-color: #4e9e83;
+    /* background-color: #16986bbf; */
+}
+
+.saveBtn {
     border-left: 1px solid black;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    /* background-color: #49b9d2; */
-    background-color:#8b96a0;
-   
+    background-color: #8b96a0;
     color: white;
-  }
- 
-  .saveBtn i:hover {
+}
+
+.saveBtn i:hover {
     font-size: 20px;
     transition: all 0.3s ease-in-out;
-    
-  }
-  .icon-visible
-  {
-    visibility: visible;
-  } 
-  
- 
+}
+
+.messageDiv {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.messageSpan {
+    color: #dc769b
+}
