@@ -52,7 +52,7 @@ textarea {
     border-left: 1px solid black;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    background-color: #8b96a0;
+    background-color: #7191b1;
     color: white;
 }
 
@@ -73,4 +73,8 @@ textarea {
 .exclamation-size {
     font-size: 15px;
 
+}
+
+.required-field {
+    border: 2px solid #be1452;
 }
