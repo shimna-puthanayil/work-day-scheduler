@@ -75,9 +75,9 @@ $(function () {
     //Save events and time to local storage 
     function saveEventsToStorage() {
         var eventId = $(this).parent('div').attr('id');
-        var eventText = $(this).parent().children().eq(1).val();
+        var eventText = $(this).parent().children().eq(1).val().trim();
         var eventTextFromStorage = localStorage.getItem(eventId);
-        if (eventText.trim() != "") {
+        if (eventText != "") {
             localStorage.setItem(eventId, eventText);
             alert('Event added to <span class="messageSpan">local storage</span><i class="fas fa-thin fa-check fa-2xs p-1" style="color: #060709;"></i>', 'light');
         }
