@@ -72,7 +72,6 @@ $(function () {
     }
     getEventsFromStorage();
 
-
     //Save events and time to local storage 
     function saveEventsToStorage() {
         var eventId = $(this).parent('div').attr('id');
@@ -81,10 +80,10 @@ $(function () {
         if (eventText.trim() != "") {
             localStorage.setItem(eventId, eventText);
             alert('Event added to <span class="messageSpan">local storage</span><i class="fas fa-thin fa-check fa-2xs p-1" style="color: #060709;"></i>', 'light');
-
         }
         else {
-            if (eventTextFromStorage.trim() === "") {
+             //if event is blank and there is no entry in local storage corresponding to the current eventId
+            if (eventTextFromStorage === null || eventTextFromStorage === "") {
                 alert('Event field is  <span class="messageSpan">empty </span> <i class="fas fa-thin  fa-exclamation fa-2xs p-1 exclamation-size" style="color: #dc769b;"></i>', 'light');
                 textAreaEl = $(this).parent().children().eq(1);
                 textAreaEl.addClass('required-field');
@@ -93,6 +92,7 @@ $(function () {
                 localStorage.setItem(eventId, eventText);
             }
         }
+        messageTimerCount = 2;
         successMessageTimer();
         getEventsFromStorage();
     }
