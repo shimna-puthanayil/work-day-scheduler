@@ -2,7 +2,7 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
-    var messageTimerCount = 2;
+    var messageTimerCount = 5;
     var textAreaEl;
     var dayDisplayEl = $('#currentDay');
 
@@ -78,7 +78,6 @@ $(function () {
         var eventId = $(this).parent('div').attr('id');
         var eventText = $(this).parent().children().eq(1).val();
         var eventTextFromStorage = localStorage.getItem(eventId);
-
         if (eventText.trim() != "") {
             localStorage.setItem(eventId, eventText);
             alert('Event added to <span class="messageSpan">local storage</span><i class="fas fa-thin fa-check fa-2xs p-1" style="color: #060709;"></i>', 'light');
@@ -86,7 +85,6 @@ $(function () {
         }
         else {
             if (eventTextFromStorage.trim() === "") {
-                console.log(eventTextFromStorage);
                 alert('Event field is  <span class="messageSpan">empty </span> <i class="fas fa-thin  fa-exclamation fa-2xs p-1 exclamation-size" style="color: #dc769b;"></i>', 'light');
                 textAreaEl = $(this).parent().children().eq(1);
                 textAreaEl.addClass('required-field');
