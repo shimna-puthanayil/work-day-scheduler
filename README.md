@@ -15,7 +15,6 @@ The user is presented with the current day on top of the calendar and time block
 The following images show the web application's appearance and functionality :
 
 ![work-day-scheduler 1](assets/images/work-day-scheduler1.png)
-
 ![work-day-scheduler 2](assets/images/work-day-scheduler2.png)
 
 ![work-day-scheduler 3](assets/images/work-day-scheduler3.png)
