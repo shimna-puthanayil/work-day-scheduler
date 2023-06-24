@@ -3,6 +3,7 @@
 // in the html.
 $(function () {
     var messageTimerCount = 2;
+    var textAreaEl;
     var dayDisplayEl = $('#currentDay');
 
     //A timer is set to display an alert message for a short interval of time after an event is saved to local storage.
@@ -13,6 +14,9 @@ $(function () {
                 // Clears interval and stops timer
                 clearInterval(successTimer);
                 $('#alertDiv').remove();
+                if (textAreaEl != null) {
+                    textAreaEl.removeClass('required-field');
+                }
             }
             else {
                 messageTimerCount--;
@@ -22,24 +26,12 @@ $(function () {
 
     //Live alert message after save
     var alertPlaceholder = $('#liveAlertPlaceholder');
-    function alert(type) {
+    function alert(message, type) {
         var wrapper = $('<div id="alertDiv" class=" d-flex align-items-center justify-content-center" role="alert">');
-        var messageSuccess = $('<div class="alert alert-' + type + ' messageDiv" >Event added to <span class="messageSpan">local storage</span><i class="fas fa-light fa-check fa-2xs p-1" style="color: #060709;"></i></div > ');
+        var messageSuccess = $('<div class="alert alert-' + type + ' messageDiv" >' + message + '</div > ');
         alertPlaceholder.append(wrapper);
         wrapper.append(messageSuccess);
     }
-
-    //Save events and time  to local storage 
-    function saveEventsToStorage() {
-        var eventId = $(this).parent('div').attr('id');
-        var eventText = $(this).parent().children().eq(1).val();
-        if (eventId) {
-            localStorage.setItem(eventId, eventText);
-            alert('light');
-            successMessageTimer();
-        }
-    }
-
 
     //  Added a listener for click events on the save button. 
     var mainDivEl = $('#time-block-display');
@@ -69,12 +61,42 @@ $(function () {
     }
 
     //Get events from local storage and displays to corresponding time blocks.
-    for (var i = 0; i < divElements.length; i++) {
-        var eventId = divElements.eq(i).attr('id');
-        var eventText = localStorage.getItem(eventId);
-        if (eventText != "" && eventText != null) {
-            divElements.eq(i).children(1).val(eventText);
+    function getEventsFromStorage() {
+        for (var i = 0; i < divElements.length; i++) {
+            var eventId = divElements.eq(i).attr('id');
+            var eventText = localStorage.getItem(eventId);
+            if (eventText != "" && eventText != null) {
+                divElements.eq(i).children(1).val(eventText);
+            }
         }
+    }
+    getEventsFromStorage();
+
+
+    //Save events and time to local storage 
+    function saveEventsToStorage() {
+        var eventId = $(this).parent('div').attr('id');
+        var eventText = $(this).parent().children().eq(1).val();
+        var eventTextFromStorage = localStorage.getItem(eventId);
+
+        if (eventText.trim() != "") {
+            localStorage.setItem(eventId, eventText);
+            alert('Event added to <span class="messageSpan">local storage</span><i class="fas fa-thin fa-check fa-2xs p-1" style="color: #060709;"></i>', 'light');
+
+        }
+        else {
+            if (eventTextFromStorage.trim() === "") {
+                console.log(eventTextFromStorage);
+                alert('Event field is  <span class="messageSpan">empty </span> <i class="fas fa-thin  fa-exclamation fa-2xs p-1 exclamation-size" style="color: #dc769b;"></i>', 'light');
+                textAreaEl = $(this).parent().children().eq(1);
+                textAreaEl.addClass('required-field');
+            }
+            else {
+                localStorage.setItem(eventId, eventText);
+            }
+        }
+        successMessageTimer();
+        getEventsFromStorage();
     }
 
     // Code to display the current date in the header of the page.
