@@ -22,9 +22,9 @@ $(function () {
 
     //Live alert message after save
     var alertPlaceholder = $('#liveAlertPlaceholder');
-    function alert(type) {
+    function alert(message, type) {
         var wrapper = $('<div id="alertDiv" class=" d-flex align-items-center justify-content-center" role="alert">');
-        var messageSuccess = $('<div class="alert alert-' + type + ' messageDiv" >Event added to <span class="messageSpan">local storage</span><i class="fas fa-light fa-check fa-2xs p-1" style="color: #060709;"></i></div > ');
+        var messageSuccess = $('<div class="alert alert-' + type + ' messageDiv" >' + message + '</div > ');
         alertPlaceholder.append(wrapper);
         wrapper.append(messageSuccess);
     }
@@ -33,9 +33,13 @@ $(function () {
     function saveEventsToStorage() {
         var eventId = $(this).parent('div').attr('id');
         var eventText = $(this).parent().children().eq(1).val();
-        if (eventId) {
+        if (eventText.trim() != "") {
             localStorage.setItem(eventId, eventText);
-            alert('light');
+            alert('Event added to <span class="messageSpan">local storage</span><i class="fas fa-thin fa-check fa-2xs p-1" style="color: #060709;"></i>', 'light');
+            successMessageTimer();
+        }
+        else {
+            alert('Event can not be <span class="messageSpan">empty </span> <i class="fas fa-thin  fa-exclamation fa-2xs p-1 exclamation-size" style="color: #dc769b;"></i>', 'light');
             successMessageTimer();
         }
     }

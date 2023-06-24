@@ -67,5 +67,10 @@ textarea {
 }
 
 .messageSpan {
-    color: #dc769b
+    color: #dc769b;
+}
+
+.exclamation-size {
+    font-size: 15px;
+
 }
