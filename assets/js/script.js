@@ -2,7 +2,7 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
-    var messageTimerCount = 5;
+    var messageTimerCount = 2;
     var textAreaEl;
     var dayDisplayEl = $('#currentDay');
 
